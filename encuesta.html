@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Compra - DaMar E-Shop13</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Encuesta de Compra</h1>
+<p>Por favor completa esta encuesta con tus datos para realizar la compra del zapato que deseas. Al presionar "Comprar", serás redirigido a WhatsApp para finalizar el proceso.</p>
+
+<form id="purchaseForm">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="text" id="apellido" placeholder="Apellido" required>
+    <input type="text" id="direccion" placeholder="Dirección" required>
+    <input type="text" id="ciudad" placeholder="Ciudad" required>
+    <select id="talla" required>
+        <option value="">Selecciona tu talla de zapato</option>
+        <option value="36">36</option>
+        <option value="37">37</option>
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+        <option value="41">41</option>
+        <option value="42">42</option>
+        <option value="43">43</option>
+        <option value="44">44</option>
+    </select>
+    <input type="text" id="zapato" placeholder="Nombre del zapato" required>
+    <button type="button" onclick="sendOrder()">Comprar</button>
+</form>
+
+<script>
+    function sendOrder() {
+        var nombre = document.getElementById("nombre").value;
+        var apellido = document.getElementById("apellido").value;
+        var direccion = document.getElementById("direccion").value;
+        var ciudad = document.getElementById("ciudad").value;
+        var talla = document.getElementById("talla").value;
+        var zapato = document.getElementById("zapato").value;
+        
+        var orderDetails = Hola, soy ${nombre} ${apellido}, vivo en ${direccion}, ${ciudad}. Quiero comprar el zapato ${zapato} en la talla ${talla}.;
+
+        var whatsappUrl = "https://wa.me/573170296998?text=" + encodeURIComponent(orderDetails);
+        window.open(whatsappUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>
